@@ -17,6 +17,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/foodel-websocket").withSockJS();
+		registry.addEndpoint("/foodel-websocket").setAllowedOrigins("*").withSockJS();
 	}
 }

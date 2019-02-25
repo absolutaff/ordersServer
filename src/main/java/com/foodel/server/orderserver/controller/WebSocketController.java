@@ -15,7 +15,7 @@ public class WebSocketController {
 
 	@MessageMapping("/createOrder")
 	@SendTo("/topic/orders")
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	public String createOrder(List<Product> products, String clientId, boolean trackOrder) throws Exception {
 		System.out.println("SERVER SOCKET: createOrder:" + products.size() + " products total.");
 		return "Order received:" + products.size() + " products total.";

@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "*")
 public class WebSocketController {
 
 
 
 	@MessageMapping("/createOrder")
 	@SendTo("/topic/orders")
-	@CrossOrigin(origins = "*")
 	public String createOrder(List<Product> products, String clientId, boolean trackOrder) throws Exception {
 		System.out.println("SERVER SOCKET: createOrder:" + products.size() + " products total.");
 		return "Order received:" + products.size() + " products total.";

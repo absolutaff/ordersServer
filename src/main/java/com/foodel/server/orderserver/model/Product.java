@@ -10,6 +10,9 @@ public class Product {
 
 	private ProductCategory category;
 
+	public Product() {
+	}
+
 	public Product(String SKU, String label, ProductCategory category) {
 		this.SKU = SKU;
 		this.label = label;

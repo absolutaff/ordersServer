@@ -1,5 +1,6 @@
 package com.foodel.server.orderserver.controller;
 
+import com.foodel.server.orderserver.model.Order;
 import com.foodel.server.orderserver.model.Product;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -16,8 +17,8 @@ public class WebSocketController {
 	@MessageMapping("/createOrder")
 	@SendTo("/topic/orders")
 	@CrossOrigin(origins = "*")
-	public String createOrder(List<Product> products, String clientId, boolean trackOrder) throws Exception {
-		System.out.println("SERVER SOCKET: createOrder:" + products.size() + " products total.");
-		return "Order received:" + products.size() + " products total.";
+	public String createOrder(Order order) throws Exception {
+		System.out.println("SERVER SOCKET: createOrder:" + order.getBuyList().size() + " products total.");
+		return "Order received:" + order.getBuyList() + " products total.";
 	}
 }
